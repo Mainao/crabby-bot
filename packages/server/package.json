@@ -5,12 +5,20 @@
   "private": true,
   "devDependencies": {
     "@types/bun": "latest",
+    "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6"
+  },
+   "scripts": {
+    "start": "bun run index.ts",
+    "dev": "bun --watch run index.ts"
   },
   "peerDependencies": {
     "typescript": "^5"
   },
   "dependencies": {
+    "@ai-sdk/google": "^4.0.50",
+    "ai": "^7.0.77",
+    "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^5.2.1"
   }

@@ -1,0 +1,151 @@
+.ocean-water {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(
+        0deg,
+        var(--color-water-deep),
+        var(--color-water-light)
+    );
+}
+
+.sea-floor {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 27%;
+
+    background: var(--color-sand);
+
+    clip-path: polygon(
+        0 12%,
+        8% 8%,
+        17% 15%,
+        26% 10%,
+        35% 17%,
+        45% 11%,
+        55% 15%,
+        65% 8%,
+        75% 14%,
+        85% 10%,
+        94% 16%,
+        100% 11%,
+        100% 100%,
+        0 100%
+    );
+}
+
+.sea-floor::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        170deg,
+        transparent 0 25%,
+        rgba(180, 130, 70, 0.15) 25% 26%,
+        transparent 26% 50%,
+        rgba(180, 130, 70, 0.12) 50% 51%,
+        transparent 51% 100%
+    );
+}
+
+.rock-1 {
+    position: absolute;
+    left: 8%;
+    bottom: 5%;
+}
+
+.seaweed-1 {
+    position: absolute;
+    left: 20%;
+    bottom: 0;
+}
+
+.bubbles {
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+}
+
+.bubble {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+
+    background: transparent;
+
+    box-shadow:
+        4px 0 var(--color-bubble),
+        8px 0 var(--color-bubble),
+        12px 4px var(--color-bubble),
+        12px 8px var(--color-bubble),
+        8px 12px var(--color-bubble),
+        4px 12px var(--color-bubble),
+        0 8px var(--color-bubble),
+        0 4px var(--color-bubble);
+}
+
+.bubble {
+    animation: bubble-rise 7s steps(20) infinite;
+}
+
+@keyframes bubble-rise {
+    from {
+        transform: translateY(0);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    85% {
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(-120px);
+        opacity: 0;
+    }
+}
+
+.bubble-1 {
+    left: 20%;
+    bottom: 25%;
+}
+
+.bubble-2 {
+    left: 45%;
+    bottom: 40%;
+}
+
+.bubble-3 {
+    left: 70%;
+    bottom: 30%;
+}
+
+.bubble-4 {
+    left: 85%;
+    bottom: 50%;
+}
+
+.reef-title {
+    position: absolute;
+    top: 55px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    z-index: 10;
+
+    margin: 0;
+    font-family: var(--font-primary);
+    font-size: 44px;
+    font-weight: 400;
+    color: #ffffff;
+
+    text-shadow: 2px 2px 0 var(--color-title-shadow);
+    text-align: center;
+}
