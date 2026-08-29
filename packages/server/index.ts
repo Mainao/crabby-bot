@@ -60,7 +60,7 @@ app.post("/api/chat", async (req, res) => {
         const result = streamText({
             model: google("gemini-3.5-flash-lite"),
             system: CRABBY_SYSTEM_PROMPT,
-            messages: convertToModelMessages(messages),
+            messages: await convertToModelMessages(structuredClone(messages)),
             temperature: 0.7,
             maxOutputTokens: 500,
         });
@@ -78,7 +78,7 @@ app.post("/api/chat", async (req, res) => {
 });
 
 app.get("/health", (_req, res) => {
-    res.json({ status: "Crabby is napping, but the server's awake" });
+    res.json({ status: "Crabby server is awake" });
 });
 
 // Local dev: only start a listening server when NOT running inside
