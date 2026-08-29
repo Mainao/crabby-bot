@@ -3,7 +3,7 @@ import type { ButtonHTMLAttributes, ReactNode } from "react";
 import { cn } from "../../lib/utils";
 
 const buttonVariants = cva(
-	"fixed flex items-center justify-center bg-transparent border-0 cursor-pointer p-0 z-150 transition-transform duration-200 hover:scale-105 disabled:opacity-40 disabled:cursor-default",
+	"flex items-center justify-center bg-transparent border-0 cursor-pointer p-0 transition-transform duration-200 hover:scale-105 disabled:opacity-40 disabled:cursor-default",
 	{
 		variants: {
 			size: {
@@ -35,10 +35,13 @@ const Button = ({
 }: ButtonProps) => {
 	return (
 		<button
-			className={cn(buttonVariants({ size }), className)}
+			className={cn(
+				buttonVariants({ size }),
+				position && "fixed z-150",
+				className,
+			)}
 			style={{
-				bottom: position?.bottom,
-				right: position?.right,
+				...(position && { bottom: position.bottom, right: position.right }),
 				...style,
 			}}
 			{...props}
