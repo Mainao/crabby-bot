@@ -149,3 +149,13 @@
 	text-shadow: 2px 2px 0 var(--color-title-shadow);
 	text-align: center;
 }
+
+@media (max-width: 640px) {
+	.reef-title {
+		top: 28px;
+		width: 100%;
+		max-width: 100%;
+		padding: 0 16px;
+		font-size: 26px;
+	}
+}

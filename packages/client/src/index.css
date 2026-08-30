@@ -73,6 +73,13 @@ body {
     animation: popup-rise 0.25s ease-out;
 }
 
+@media (min-width: 640px) {
+    .chatbox-popup {
+        bottom: var(--chat-bottom);
+        right: var(--chat-right);
+    }
+}
+
 .chatbox-header {
     background: var(--color-water-deep);
     clip-path: ellipse(120% 100% at 50% 0%);
