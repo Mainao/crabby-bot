@@ -4,4 +4,12 @@ compatibility_date = "2026-08-01"
 compatibility_flags = ["nodejs_compat"]
 
 [vars]
-CLIENT_ORIGIN = "https://your-crabby-app.pages.dev"
+CLIENT_ORIGIN = "https://crabby-bot.pages.dev"
+
+[[ratelimits]]
+name = "RATE_LIMITER"
+namespace_id = "1001"
+
+[ratelimits.simple]
+limit = 5
+period = 60

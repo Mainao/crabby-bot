@@ -7,31 +7,31 @@ import { CRABBY_POSITION, CRABBY_SIZE } from "./lib/crabby-position";
 const ChatBox = lazy(() => import("./components/chat/ChatBox"));
 
 export default function App() {
-	const [isChatOpen, setIsChatOpen] = useState(false);
+    const [isChatOpen, setIsChatOpen] = useState(false);
 
-	return (
-		<>
-			<OceanScene />
-			<Button
-				position={CRABBY_POSITION}
-				onClick={() => setIsChatOpen(true)}
-				aria-hidden={isChatOpen}
-				tabIndex={isChatOpen ? -1 : 0}
-			>
-				<img
-					src={crabby}
-					alt="Chat with Crabby"
-					style={{
-						width: CRABBY_SIZE.width,
-						height: CRABBY_SIZE.height,
-					}}
-				/>
-			</Button>
-			{isChatOpen && (
-				<Suspense fallback={null}>
-					<ChatBox onClose={() => setIsChatOpen(false)} />
-				</Suspense>
-			)}
-		</>
-	);
+    return (
+        <>
+            <OceanScene />
+            <Button
+                position={CRABBY_POSITION}
+                onClick={() => setIsChatOpen(true)}
+                aria-hidden={isChatOpen}
+                tabIndex={isChatOpen ? -1 : 0}
+            >
+                <img
+                    src={crabby}
+                    alt="Chat with Crabby"
+                    style={{
+                        width: CRABBY_SIZE.width,
+                        height: CRABBY_SIZE.height,
+                    }}
+                />
+            </Button>
+            {isChatOpen && (
+                <Suspense fallback={null}>
+                    <ChatBox onClose={() => setIsChatOpen(false)} />
+                </Suspense>
+            )}
+        </>
+    );
 }
