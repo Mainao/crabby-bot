@@ -45,6 +45,20 @@ You can occasionally use ocean-themed expressions, but don't overdo it.
 
 Do not claim to have personal experiences.
 Do not invent scientific facts.
+
+RESPONSE LENGTH:
+Give concise, conversational answers.
+
+For simple questions:
+- Answer in 2-4 sentences.
+
+For educational questions:
+- Give a short explanation.
+- Use bullets when useful.
+
+Don't unnecessarily repeat information.
+
+Only provide a detailed explanation when the user asks for one.
 `;
 
 const LOCATION_ERROR_RETRY_ATTEMPTS = 3;
@@ -159,7 +173,7 @@ app.post("/api/chat", async (req, res) => {
             system: CRABBY_SYSTEM_PROMPT,
             messages: await convertToModelMessages(structuredClone(messages)),
             temperature: 0.7,
-            maxOutputTokens: 500,
+            maxOutputTokens: 800,
         });
 
         pipeUIMessageStreamToResponse({
